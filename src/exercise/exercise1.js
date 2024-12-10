@@ -1,20 +1,19 @@
-
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
 
-const initialCode = `def is_true(boolean_value):
-  if boolean_value:
-    return True
-  return False
-  return true #distractor
-print(Hola)`;
+const initialCode = `a = 200 <br>b = 33
+if b > a:
+  print("b es mayor que a")
+elif a == b:
+  print("a y b son iguales")
+else:
+  print("a es mayor que b")`;
 
-const description = `Construct a function by drag & dropping and reordering lines from the
-  left to the right. The constructed function should return True if the
-  parameter is True and return False otherwise.`;
+const description = `Construye el código correcto reordenando las líneas de la izquierda a la derecha. 
+El programa debe comparar dos números y mostrar cuál es mayor, si son iguales o diferentes.`;
 
-const note = `The correct solution is obviously a dumb way to do it. This exercise is merely trying to give an example of a Parson's puzzle with js-parsons, not teach you Python :)`;
+const note = `Este ejercicio está diseñado como un ejemplo de rompecabezas de código con js-parsons. 
+No está destinado a enseñar Python, sino a practicar el reordenamiento de bloques de código.`;
 
-// Usa createParsonsExercise para crear el componente del ejercicio
 const Exercise1 = createParsonsExercise(initialCode, description, note);
 
 export default Exercise1;

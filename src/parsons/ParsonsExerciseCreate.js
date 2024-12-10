@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const createParsonsExercise = (initial, description, note) => {
   return () => {
+    const navigate = useNavigate();
+
     useEffect(() => {
       const loadScripts = async () => {
         await Promise.all([
@@ -75,6 +78,20 @@ export const createParsonsExercise = (initial, description, note) => {
       };
     }, []);
 
+    const goToPrevious = () => {
+      const currentPath = window.location.pathname;
+      const currentExercise = parseInt(currentPath.split("/").pop(), 10);
+      if (currentExercise > 1) {
+        navigate(`/exercise/${currentExercise - 1}`);
+      }
+    };
+
+    const goToNext = () => {
+      const currentPath = window.location.pathname;
+      const currentExercise = parseInt(currentPath.split("/").pop(), 10);
+      navigate(`/exercise/${currentExercise + 1}`);
+    };
+
     return (
       <div className="container mx-auto p-4">
         <h2 className="text-3xl font-semibold text-gray-800 mb-6">Parsons Problems</h2>
@@ -112,6 +129,20 @@ export const createParsonsExercise = (initial, description, note) => {
         </div>
         {/* Contenedor para mostrar los mensajes de feedback */}
         <div id="feedbackMessage" className="mt-4"></div>
+        <div className="mt-6 flex justify-center gap-4">
+          <button
+            onClick={goToPrevious}
+            className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-400"
+          >
+            Anterior
+          </button>
+          <button
+            onClick={goToNext}
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-400"
+          >
+            Siguiente
+          </button>
+        </div>
       </div>
     );
   };
