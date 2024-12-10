@@ -9,10 +9,9 @@ else:
   print("a es mayor que b")`;
 
 const description = `Construye el código correcto reordenando las líneas de la izquierda a la derecha. 
-El programa debe comparar dos números y mostrar cuál es mayor, si son iguales o diferentes.`;
+El programa debe comparar dos números (a y b) y mostrar cuál es mayor, si son iguales o diferentes.`;
 
-const note = `Este ejercicio está diseñado como un ejemplo de rompecabezas de código con js-parsons. 
-No está destinado a enseñar Python, sino a practicar el reordenamiento de bloques de código.`;
+const note = `a y b son variables que contienen números enteros.`;
 
 const Exercise1 = createParsonsExercise(initialCode, description, note);
 
