@@ -4,6 +4,7 @@ import Home from './Home';
 
 import Exercise1 from './exercise/exercise1'; // Ruta para el ejercicio 1
 import Exercise2 from './exercise/exercise2';
+import Exercise3 from './exercise/exercise3';
 import Levels from './parsons/ParsonsLevels';
 import ParsonsExercise from './parsons/ParsonsExercise';
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/ParsonsLevels" element={<Levels />} />
         <Route path="/exercise/1" element={<Exercise1 />} />
         <Route path="/exercise/2" element={<Exercise2 />} />
+        <Route path="/exercise/3" element={<Exercise3 />} />
         <Route path='Test' element={<ParsonsExercise />} />
       
       </Routes>
