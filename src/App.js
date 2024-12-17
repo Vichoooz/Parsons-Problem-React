@@ -1,10 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
-
-import Exercise1 from './exercise/exercise1'; // Ruta para el ejercicio 1
-import Exercise2 from './exercise/exercise2';
-import Exercise3 from './exercise/exercise3';
+import exercises from './exercise/exercises'; // Importa el objeto de ejercicios
 import Levels from './parsons/ParsonsLevels';
 import ParsonsExercise from './parsons/ParsonsExercise';
 
@@ -14,9 +11,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ParsonsLevels" element={<Levels />} />
-        <Route path="/exercise/1" element={<Exercise1 />} />
-        <Route path="/exercise/2" element={<Exercise2 />} />
-        <Route path="/exercise/3" element={<Exercise3 />} />
+        
+        {/* Mapea las rutas dinámicamente a partir de los ejercicios */}
+        {Object.keys(exercises).map((level) => (
+          <Route
+            key={level}
+            path={`/exercise/${level}`}
+            element={React.createElement(exercises[level])} // Usa React.createElement para renderizar dinámicamente el componente
+          />
+        ))}
+        
         <Route path='Test' element={<ParsonsExercise />} />
       
       </Routes>

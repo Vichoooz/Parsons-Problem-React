@@ -11,9 +11,18 @@ export const createParsonsExercise = (initial, description, note) => {
     const [isCorrect, setIsCorrect] = useState(false); // Para verificar si la respuesta es correcta
     const [showPopup, setShowPopup] = useState(false); // Para mostrar el popup
     const [errorsCount, setErrorsCount] = useState(0); // Para contar los errores cometidos
+    const [record, setRecord] = useState({ time: null, errors: null }); // Estado para el récord
+
     const lastExecutionTimeRef = useRef(0);
 
     useEffect(() => {
+      // Cargar los datos del nivel actual desde localStorage
+      const level = window.location.pathname;
+      const levelData = getLevelData(level);
+
+      if (levelData) {
+        setRecord(levelData); // Actualiza el récord si existe
+      }
       // Iniciar el temporizador cuando el componente se carga
       const startTime = Date.now();
       const intervalId = setInterval(() => {
@@ -72,17 +81,18 @@ export const createParsonsExercise = (initial, description, note) => {
 
       const displayErrors = (fb) => {
         const feedbackElement = document.getElementById("feedbackMessage");
-
+        let NoSumarError = false;
         const currentTime = Date.now();
         if (currentTime - lastExecutionTimeRef.current < 1000) {
-          return; // Si la diferencia de tiempo es menor a 1 segundos, no ejecutar la función
+          NoSumarError = true;
         }
-
         lastExecutionTimeRef.current = currentTime;
 
         console.log(fb.errors);
 
-        if (fb.errors.length > 0 && !isCorrect) {
+        if (fb.errors.length > 0 && !isCorrect && !NoSumarError) {
+          console.log(NoSumarError);
+
           feedbackElement.textContent = "¡Incorrecto! Revisa tu solución.";
           feedbackElement.className =
             "text-red-600 text-center font-bold mt-4";
@@ -94,6 +104,7 @@ export const createParsonsExercise = (initial, description, note) => {
             "text-green-600 text-center font-bold mt-4";
 
           // Detener el temporizador si la respuesta es correcta
+          setErrorsCount((prev) => prev - 1);
           setIsCorrect(true);
           setShowPopup(true); // Mostrar el popup cuando se complete correctamente
           
@@ -137,79 +148,121 @@ export const createParsonsExercise = (initial, description, note) => {
       const remainingSeconds = seconds % 60;
       return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
     };
+    const getLevelData = (level) => {
+      const gameData = JSON.parse(localStorage.getItem("gameData")) || {};
+      return gameData[level] || { errors: 0, time: 0 }; // Valores por defecto
+    };
     
 
     return (
-      <div className="container mx-auto p-4">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-6">Parsons Problems</h2>
-        <p className="text-gray-600 mb-4">{description}</p>
-        {note && (
-          <p className="text-gray-600 mb-6">
-            <strong>Note:</strong> {note}
-          </p>
-        )}
-        <div className="flex gap-4">
+      <div className="min-h-screen bg-gradient-to-r from-teal-500 to-blue-500 text-white flex flex-col items-center py-12">
+        <div className="bg-white max-w-6xl w-full p-8 rounded-lg shadow-lg">
+          {/* Encabezado */}
+          <header className="text-center">
+            <h2 className="text-4xl font-bold text-blue-600">Parsons Problems</h2>
+            <p className="mt-2 text-gray-600">
+              {description || "Practica tus habilidades en programación interactiva."}
+            </p>
+            {note && (
+              <p className="mt-2 text-sm text-gray-500">
+                <strong>Nota:</strong> {note}
+              </p>
+            )}
+          </header>
+    
+          {/* Récord */}
+          {record.time !== null && (
+            <div className="mt-6 bg-gray-100 p-4 rounded-lg shadow-md">
+              <h3 className="text-center text-lg font-bold text-gray-800">Récord Personal</h3>
+              <p className="text-center text-gray-600 mt-2">
+                Tiempo más rápido:{" "}
+                <span className="font-semibold">
+                  {record.time === 0 ? "---" : formatTime(record.time)}
+                </span>
+              </p>
+              <p className="text-center text-gray-600">
+                Menor número de errores:{" "}
+                <span className="font-semibold">
+                  {record.errors === 0 ? "---" : record.errors}
+                </span>
+              </p>
+            </div>
+          )}
+    
+          {/* Zona interactiva */}
+          <div className="flex flex-col md:flex-row gap-6 mt-8">
+            <div
+              id="sortableTrash"
+              className="sortable-code bg-gray-100 p-6 rounded-lg shadow-md w-full text-black"
+            ></div>
+            <div
+              id="sortable"
+              className="sortable-code bg-gray-100 p-6 rounded-lg shadow-md w-full text-black"
+            ></div>
+          </div>
+    
+          {/* Botones de acción */}
+          <div className="mt-8 flex justify-center gap-4">
+            <button
+              id="newInstanceLink"
+              className="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500"
+            >
+              Nueva instancia
+            </button>
+            <button
+              id="feedbackLink"
+              className="bg-green-600 text-white py-2 px-6 rounded-lg hover:bg-green-500"
+            >
+              Revisar
+            </button>
+          </div>
+    
+          {/* Feedback */}
           <div
-            id="sortableTrash"
-            className="sortable-code bg-gray-100 p-4 rounded shadow-md w-full"
+            id="feedbackMessage"
+            className="mt-4 text-center text-lg font-semibold"
           ></div>
-          <div
-            id="sortable"
-            className="sortable-code bg-gray-100 p-4 rounded shadow-md w-full"
-          ></div>
+    
+          {/* Botones de navegación */}
+          <div className="mt-8 flex justify-center gap-4">
+            <button
+              onClick={goToPrevious}
+              className="bg-gray-600 text-white py-2 px-6 rounded-lg hover:bg-gray-500"
+            >
+              Anterior
+            </button>
+            <button
+              onClick={goToNext}
+              className="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500"
+            >
+              Siguiente
+            </button>
+          </div>
+    
+          {/* Tiempo y errores */}
+          <div className="mt-8 bg-gray-100 p-4 rounded-lg shadow-md text-center">
+            <p className="text-gray-600">
+              <strong>Tiempo transcurrido:</strong>{" "}
+              <span className="text-blue-600 font-semibold">
+                {formatTime(elapsedTime)}
+              </span>
+            </p>
+            <p className="text-gray-600">
+              <strong>Errores cometidos:</strong>{" "}
+              <span className="text-red-600 font-semibold">{errorsCount}</span>
+            </p>
+          </div>
         </div>
-        <div className="mt-6 flex justify-center gap-4">
-          <button
-            id="newInstanceLink"
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-400"
-          >
-            Nueva instancia.
-          </button>
-          <button
-            id="feedbackLink"
-            className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-400"
-          >
-            Revisar
-          </button>
-        </div>
-
-        {/* Contenedor para mostrar los mensajes de feedback */}
-        <div id="feedbackMessage" className="mt-4"></div>
-        <div className="mt-6 flex justify-center gap-4">
-          <button
-            onClick={goToPrevious}
-            className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-400"
-          >
-            Anterior
-          </button>
-          <button
-            onClick={goToNext}
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-400"
-          >
-            Siguiente
-          </button>
-        </div>
-
-        {/* Mostrar el tiempo transcurrido en formato mm:ss */}
-        <div className="mt-4 text-center">
-          <p>Tiempo transcurrido: {formatTime(elapsedTime)}</p>
-        </div>
-
-        {/* Mostrar el número de errores cometidos */}
-        <div className="mt-4 text-center">
-          <p>Errores cometidos: {errorsCount}</p>
-        </div>
-
-        {/* Mostrar el popup cuando el ejercicio se completa correctamente */}
+    
+        {/* Popup al completar el ejercicio */}
         {showPopup && (
-      <ParsonsComplete 
-            timeTaken={elapsedTime} 
-            errorsCount={errorsCount}  // Pasar el número de errores
-            onNextExercise={handleNextExercise} 
+          <ParsonsComplete
+            timeTaken={elapsedTime}
+            errorsCount={errorsCount}
+            onNextExercise={handleNextExercise}
           />
-)}
-
+        )}
       </div>
     );
-  };
+  };    
 };
