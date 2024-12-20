@@ -32,7 +32,7 @@ function ParsonsLevels() {
           <h2 className="text-3xl font-bold mb-6">Selecciona un Nivel</h2>
           <div className="grid grid-cols-4 gap-6 justify-center">
             {currentLevels.map((level) => (
-              <Link key={level.id} to={`/exercise/${level.id}`}>
+              <Link key={level.id} to={`/Parsons-Problem-React/exercise/${level.id}`}>
                 <div className="bg-blue-500 text-white py-8 px-8 rounded-xl shadow-md hover:bg-blue-600 text-center text-lg font-semibold">
                   {level.name}
                 </div>

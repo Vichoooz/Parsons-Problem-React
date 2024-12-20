@@ -31,7 +31,7 @@ const Home = () => {
       <section className="mt-16 text-center">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">¡Comienza ahora mismo!</h2>
         <Link
-          to="/ParsonsLevels"
+          to="/Parsons-Problem-React/ParsonsLevels"
           className="bg-green-500 text-white py-3 px-8 rounded-lg text-xl hover:bg-green-400 transition duration-300"
         >
           ¡Iniciar Ejercicio!
