@@ -8,8 +8,7 @@ elif a == b:
 else:
   print("a es mayor que b")`;
 
-const description = `Construye el código correcto reordenando las líneas de la izquierda a la derecha. 
-El programa debe comparar dos números (a y b) y mostrar cuál es mayor, si son iguales o diferentes.`;
+const description = `Crea un programa que permita comparar dos números (a y b). El programa debe determinar cuál de los dos números es mayor, si ambos son iguales o si son diferentes.`;
 
 const note = `a y b son variables que contienen números enteros.`;
 

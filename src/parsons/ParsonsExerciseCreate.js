@@ -91,11 +91,18 @@ export const createParsonsExercise = (initial, description, note) => {
         console.log(fb.errors);
 
         if (fb.errors.length > 0 && !isCorrect && !NoSumarError) {
-          console.log(NoSumarError);
-
-          feedbackElement.textContent = "¡Incorrecto! Revisa tu solución.";
-          feedbackElement.className =
-            "text-red-600 text-center font-bold mt-4";
+          if (fb.errors[0] === "Your program has too few code fragments.") {
+            feedbackElement.textContent = "¡Tu programa tiene muy pocos fragmentos de código!";
+            feedbackElement.className = "text-red-600 text-center font-bold mt-4";
+          }
+          else if (fb.errors[0] === "Code fragments in your program are wrong, or in wrong order. This can be fixed by moving, removing, or replacing highlighted fragments.") {
+            feedbackElement.textContent = "¡Los fragmentos de código en tu programa son incorrectos o están en el orden incorrecto!";
+            feedbackElement.className = "text-red-600 text-center font-bold mt-4";
+          }
+          else {
+            feedbackElement.textContent = "¡Incorrecto! Revisa tu solución.";
+            feedbackElement.className = "text-red-600 text-center font-bold mt-4";
+          }
           setErrorsCount((prev) => prev + 1);
 
         } else if (fb.errors.length === 0 && !isCorrect) {
@@ -160,13 +167,14 @@ export const createParsonsExercise = (initial, description, note) => {
           {/* Encabezado */}
           <header className="text-center">
             <h2 className="text-4xl font-bold text-blue-600">Parsons Problems</h2>
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-lg text-black">
               {description || "Practica tus habilidades en programación interactiva."}
             </p>
             {note && (
-              <p className="mt-2 text-sm text-gray-500">
-                <strong>Nota:</strong> {note}
-              </p>
+              <p className="mt-2 text-lg text-black">
+              <strong>Nota:</strong> {note}
+            </p>
+
             )}
           </header>
     
