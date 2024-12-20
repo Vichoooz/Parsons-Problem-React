@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Parsons-Problem-React" element={<Home />} />
         <Route path="/ParsonsLevels" element={<Levels />} />
         
         {/* Mapea las rutas dinámicamente a partir de los ejercicios */}
