@@ -111,7 +111,7 @@ export const createParsonsExercise = (initial, description, note) => {
             "text-green-600 text-center font-bold mt-4";
 
           // Detener el temporizador si la respuesta es correcta
-          setErrorsCount((prev) => prev - 1);
+          //setErrorsCount((prev) => prev - 1);
           setIsCorrect(true);
           setShowPopup(true); // Mostrar el popup cuando se complete correctamente
           
