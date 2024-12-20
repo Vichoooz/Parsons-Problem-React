@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/parsons-exercises/build/static/css/main.85fb2c13.css",
-    "main.js": "/parsons-exercises/build/static/js/main.4e3e9c8c.js",
-    "static/js/453.7c347633.chunk.js": "/parsons-exercises/build/static/js/453.7c347633.chunk.js",
-    "index.html": "/parsons-exercises/build/index.html",
-    "main.85fb2c13.css.map": "/parsons-exercises/build/static/css/main.85fb2c13.css.map",
-    "main.4e3e9c8c.js.map": "/parsons-exercises/build/static/js/main.4e3e9c8c.js.map",
-    "453.7c347633.chunk.js.map": "/parsons-exercises/build/static/js/453.7c347633.chunk.js.map"
+    "main.css": "/Parsons-Problem-React/build/static/css/main.85fb2c13.css",
+    "main.js": "/Parsons-Problem-React/build/static/js/main.23741976.js",
+    "static/js/453.7c347633.chunk.js": "/Parsons-Problem-React/build/static/js/453.7c347633.chunk.js",
+    "index.html": "/Parsons-Problem-React/build/index.html",
+    "main.85fb2c13.css.map": "/Parsons-Problem-React/build/static/css/main.85fb2c13.css.map",
+    "main.23741976.js.map": "/Parsons-Problem-React/build/static/js/main.23741976.js.map",
+    "453.7c347633.chunk.js.map": "/Parsons-Problem-React/build/static/js/453.7c347633.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.85fb2c13.css",
-    "static/js/main.4e3e9c8c.js"
+    "static/js/main.23741976.js"
   ]
 }
