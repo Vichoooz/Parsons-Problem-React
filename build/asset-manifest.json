@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/parsons-exercises/static/css/main.85fb2c13.css",
+    "main.js": "/parsons-exercises/static/js/main.299ddc93.js",
+    "static/js/453.7c347633.chunk.js": "/parsons-exercises/static/js/453.7c347633.chunk.js",
+    "index.html": "/parsons-exercises/index.html",
+    "main.85fb2c13.css.map": "/parsons-exercises/static/css/main.85fb2c13.css.map",
+    "main.299ddc93.js.map": "/parsons-exercises/static/js/main.299ddc93.js.map",
+    "453.7c347633.chunk.js.map": "/parsons-exercises/static/js/453.7c347633.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.85fb2c13.css",
+    "static/js/main.299ddc93.js"
+  ]
+}

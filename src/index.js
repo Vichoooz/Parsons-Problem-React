@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';  // Asegúrate de que este archivo está importado
 
-import _ from 'underscore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
