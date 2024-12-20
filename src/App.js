@@ -10,13 +10,13 @@ function App() {
     <Router>
       <Routes>
         <Route path="/Parsons-Problem-React" element={<Home />} />
-        <Route path="/ParsonsLevels" element={<Levels />} />
+        <Route path="/Parsons-Problem-React/ParsonsLevels" element={<Levels />} />
         
         {/* Mapea las rutas dinámicamente a partir de los ejercicios */}
         {Object.keys(exercises).map((level) => (
           <Route
             key={level}
-            path={`/exercise/${level}`}
+            path={`/Parsons-Problem-React/exercise/${level}`}
             element={React.createElement(exercises[level])} // Usa React.createElement para renderizar dinámicamente el componente
           />
         ))}
