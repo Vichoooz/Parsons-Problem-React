@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ParsonsComplete from "./ParsonsComplete"; // Importa el componente ParsonsComplete
+import "../parsons.css"; // Asegúrate de que el archivo CSS esté en el lugar correcto
 
 export const createParsonsExercise = (initial, description, note) => {
   return () => {
@@ -39,6 +40,9 @@ export const createParsonsExercise = (initial, description, note) => {
           loadScript("../lib/underscore-min.js"),
           loadScript("../lib/lis.js"),
           loadScript("../lib/parsons.js"),
+
+
+          
         ]);
         initializeParsons();
       };

@@ -1,6 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { v4 as uuidv4 } from 'uuid';
+
+const getOrCreateUserId = () => {
+  let userId = localStorage.getItem("userId");
+  if (!userId) {
+    userId = uuidv4(); // Generar un UUID único
+    localStorage.setItem("userId", userId); // Guardarlo en el navegador
+  }
+  return userId;
+};
+getOrCreateUserId();
+
 const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-teal-500 to-blue-500 text-white py-12">

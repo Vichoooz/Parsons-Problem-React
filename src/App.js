@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import exercises from './exercise/exercises'; // Importa el objeto de ejercicios
 import Levels from './parsons/ParsonsLevels';
-import ParsonsExercise from './parsons/ParsonsExercise';
-
 function App() {
   return (
     <Router>
@@ -20,9 +18,7 @@ function App() {
             element={React.createElement(exercises[level])} // Usa React.createElement para renderizar dinámicamente el componente
           />
         ))}
-        
-        <Route path='Test' element={<ParsonsExercise />} />
-      
+            
       </Routes>
     </Router>
   );
