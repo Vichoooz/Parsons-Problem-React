@@ -1,14 +1,12 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
 
-const initialCode = `num1 = int(input("Ingresa el primer número: "))
-    num2 = int(input("Ingresa el segundo número: "))
-    num3 = int(input("Ingresa el tercer número: "))
-    if num1 >= num2 and num1 >= num3:
-        print("El número mayor es: " + num1)
-    elif num2 >= num1 and num2 >= num3:
-        print("El número mayor es: " + num2)
-    else:
-        print("El número mayor es: " + num3)`;
+const initialCode = `num1 = int(input("Ingresa el primer número: "))<br>num2 = int(input("Ingresa el segundo número: "))<br>num3 = int(input("Ingresa el tercer número: "))
+if num1 >= num2 and num1 >= num3:
+    print("El número mayor es: " + num1)
+elif num3 >= num1 and num >= num3:
+    print("El número mayor es: " + num3)
+else:
+    print("El número mayor es: " + num2)`;
 
 const description = `Escribe un programa que determine cuál de tres números ingresados es el mayor.`;
 const note = `Los tres números son variables que contienen números enteros.`;	
