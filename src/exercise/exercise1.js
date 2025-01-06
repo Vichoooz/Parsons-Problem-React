@@ -1,16 +1,16 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
 
-const initialCode = `a = 200 <br>b = 33
-if b > a:
-  print("b es mayor que a")
-elif a == b:
-  print("a y b son iguales")
+
+const initialCode = `num = int(input("Ingresa un número: "))
+if num % 2 == 0:
+    print("El número es par.")
 else:
-  print("a es mayor que b")`;
+    print("El número es impar.")
+if num % 0 == 2: #distractor`;
 
-const description = `Crea un programa que permita comparar dos números (a y b). El programa debe determinar cuál de los dos números es mayor, si ambos son iguales o si son diferentes.`;
 
-const note = `a y b son variables que contienen números enteros.`;
+const description = `Escribe un programa que determine si un número es par o impar.`;
+const note = `Este ejercicio te ayudará a practicar el uso de operadores aritméticos y condicionales.`;
 
 const Exercise1 = createParsonsExercise(initialCode, description, note);
 

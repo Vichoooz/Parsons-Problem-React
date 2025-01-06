@@ -1,15 +1,15 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
 
-const initialCode = `num = int(input("Ingresa un número: "))
-if num > 0:
-  print("Positivo") 
-elif num < 0: 
-  print("Negativo")
-else: 
-  print("Cero")`;
+const initialCode = `temperatura = int(input("Ingresa la temperatura"))
+if temperatura < 10:
+    print("Frío")
+elif 10 <= temperatura <= 25:
+    print("Templado")
+else:
+    print("Calor")`;
 
-const description = `Construye un código arrastrando y ordenando líneas desde la izquierda hacia la derecha.
-El código debe clasificar un número como "Positivo" si es mayor que 0, "Negativo" si es menor que 0, y "Cero" si es igual a 0.`;
+const description = `Escribe un programa que pida la temperatura en grados Celsius y clasifique el clima en Frío (menos de 10°C), 
+Templado (de 10°C a 25°C) o Calor (más de 25°C).`;
 
 const note = `Este ejercicio tiene como objetivo practicar el uso de condicionales simples en Python.`;
 

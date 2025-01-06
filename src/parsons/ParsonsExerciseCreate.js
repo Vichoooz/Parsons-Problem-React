@@ -167,7 +167,7 @@ export const createParsonsExercise = (initial, description, note) => {
 
     return (
       <div className="min-h-screen bg-gradient-to-r from-teal-500 to-blue-500 text-white flex flex-col items-center py-12">
-        <div className="bg-white max-w-6xl w-full p-8 rounded-lg shadow-lg">
+        <div className="bg-white max-w-[88rem] w-full p-9 rounded-lg shadow-lg">
           {/* Encabezado */}
           <header className="text-center">
             <h2 className="text-4xl font-bold text-blue-600">Parsons Problems</h2>
@@ -181,7 +181,8 @@ export const createParsonsExercise = (initial, description, note) => {
 
             )}
           </header>
-    
+            <div  >
+
           {/* Récord */}
           {record.time !== null && (
             <div className="mt-6 bg-gray-100 p-4 rounded-lg shadow-md">
@@ -200,12 +201,27 @@ export const createParsonsExercise = (initial, description, note) => {
               </p>
             </div>
           )}
+            {/* Tiempo y errores */}
+            <div className="mt-8 bg-gray-100 p-4 rounded-lg shadow-md text-center">
+            <p className="text-gray-600">
+              <strong>Tiempo transcurrido:</strong>{" "}
+              <span className="text-blue-600 font-semibold">
+                {formatTime(elapsedTime)}
+              </span>
+            </p>
+            <p className="text-gray-600">
+              <strong>Errores cometidos:</strong>{" "}
+              <span className="text-red-600 font-semibold">{errorsCount}</span>
+            </p>
+          </div>
+  
+        </div>
     
           {/* Zona interactiva */}
           <div className="flex flex-col md:flex-row gap-6 mt-8">
             <div
               id="sortableTrash"
-              className="sortable-code bg-gray-100 p-6 rounded-lg shadow-md w-full text-black"
+              className="sortable-code bg-gray-100 p-8 rounded-lg shadow-md w-full text-black"
             ></div>
             <div
               id="sortable"
@@ -249,20 +265,6 @@ export const createParsonsExercise = (initial, description, note) => {
             >
               Siguiente
             </button>
-          </div>
-    
-          {/* Tiempo y errores */}
-          <div className="mt-8 bg-gray-100 p-4 rounded-lg shadow-md text-center">
-            <p className="text-gray-600">
-              <strong>Tiempo transcurrido:</strong>{" "}
-              <span className="text-blue-600 font-semibold">
-                {formatTime(elapsedTime)}
-              </span>
-            </p>
-            <p className="text-gray-600">
-              <strong>Errores cometidos:</strong>{" "}
-              <span className="text-red-600 font-semibold">{errorsCount}</span>
-            </p>
           </div>
         </div>
     

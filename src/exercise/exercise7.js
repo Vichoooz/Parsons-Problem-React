@@ -13,7 +13,8 @@ else:
     else:
         print("Buenas tardes, sigue trabajando fuerte")`;
 
-const description = `Haz un código que salude dependiendo de la hora y si es fin de semana o día de semana.`;
+const description = `Diseña un programa que pida al usuario un número del 1 al 7 y determine si corresponde a un día de la semana 
+laboral (lunes a viernes) o fin de semana (sábado o domingo). Si el número no está en el rango, imprime Número fuera de rango`;
 const note = `Este ejercicio te ayudará a practicar las condiciones combinadas con if, elif y else.`;
 
 const Exercise7 = createParsonsExercise(initialCode, description, note);
