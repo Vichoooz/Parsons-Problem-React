@@ -13,6 +13,9 @@ import Exercise12 from './exercise12';
 import Exercise13 from './exercise13';
 import Exercise14 from './exercise14';
 import Exercise15 from './exercise15';
+import Exercise16 from './exercise16';
+import Exercise17 from './exercise17';
+import Exercise18 from './exercise18';
 
 const exercises = {
     1: Exercise1,
@@ -29,7 +32,10 @@ const exercises = {
     12: Exercise12,
     13: Exercise13,
     14: Exercise14,
-    15: Exercise15
+    15: Exercise15,
+    16: Exercise16,
+    17: Exercise17,
+    18: Exercise18
 
   };
   

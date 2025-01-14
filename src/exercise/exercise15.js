@@ -8,7 +8,7 @@ elif ld1 == ld3 and ld2 == ld4:
 else:
     print("No es una figura válida.")`;
 
-const description = `Escribe un programa que determine si una figura geométrica es un cuadrado, un rectángulo o ninguna de estas, basándose en la longitud de sus lds. Si se ingresan cuatro valores para los lds de la figura.`;
+const description = `Escribe un programa que determine si una figura geométrica es un cuadrado, un rectángulo o ninguna de estas, basándose en la longitud de sus lados. Si se ingresan cuatro valores para los lados de la figura.`;
 const note = `El número ingresado es un número entero.`;
 
 const Exercise15 = createParsonsExercise(initialCode, description, note);
