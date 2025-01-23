@@ -13,10 +13,12 @@
     font-family: monospace;
     list-style: none;
     background-color: #efefff;
-    padding-bottom: 10px;
-    padding-left: 0;
-    margin-left: 0;
-    border: 1px solid #efefff;;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 10px;;
+    border: 0 solid #efefff;;
 }
 .sortable-code ul:empty {
   padding-bottom: 30px;

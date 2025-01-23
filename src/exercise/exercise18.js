@@ -1,20 +1,15 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
 
-const initialCode = `numero = 0
-while numero >= 0:
+const initialCode = `while numero >= 0:
     numero = int(input("Ingresa un número: "))
     if numero > 0:
         print("Número positivo")
     else:
         print("Número negativo o cero")
-
-while numero > 0: #distractor
-if numero == 0: #distractor
-elif numero < 0: #distractor
 `;
 
-const description = `Diseña un programa que solicite al usuario un número y continúe pidiéndolo hasta que ingrese un número negativo o cero.`;
-const note = `Tambien se debe imprimir "Número positivo" si el número ingresado es positivo.`;
+const description = `Diseña un programa que le pida al usuario que ingrese un número. El programa debe continuar solicitando números al usuario hasta que este ingrese un número negativo o cero. Después de cada número positivo ingresado, el programa debe mostrar el mensaje "Número positivo". Si el número ingresado es negativo o cero, el programa debe mostrar el mensaje "Número negativo o cero" y finalizar.`;
+const note = ``;
 
 const Exercise18 = createParsonsExercise(initialCode, description, note);
 export default Exercise18;

@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+/* Mientras un bloque es arrastrado */
+.dragging {
+  border-color: #007bff;
+  background-color: #f0f8ff;
+}
+
+/* Indicador visual cuando un bloque está sobre un contenedor */
+.sortable-hover {
+  border-color: #28a745;
+  background-color: #d4edda;
+}

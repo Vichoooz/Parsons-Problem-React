@@ -16,7 +16,14 @@ import Exercise15 from './exercise15';
 import Exercise16 from './exercise16';
 import Exercise17 from './exercise17';
 import Exercise18 from './exercise18';
-
+import Exercise19 from './exercise19';
+import Exercise20 from './exercise20';
+import Exercise21 from './exercise21';
+import Exercise22 from './exercise22';
+import Exercise23 from './exercise23';
+import Exercise24 from './exercise24';
+import Exercise25 from './exercise25';
+import Exercise26 from './exercise26';
 const exercises = {
     1: Exercise1,
     2: Exercise2,
@@ -35,7 +42,15 @@ const exercises = {
     15: Exercise15,
     16: Exercise16,
     17: Exercise17,
-    18: Exercise18
+    18: Exercise18,
+    19: Exercise19,
+    20: Exercise20,
+    21: Exercise21,
+    22: Exercise22,
+    23: Exercise23,
+    24: Exercise24,
+    25: Exercise25,
+    26: Exercise26,
 
   };
   
