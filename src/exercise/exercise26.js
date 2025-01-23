@@ -5,8 +5,7 @@ const initialCode = `for i in range(1, 11):
 for i in range(1, 10) #distractor
 for i in range(0, 11) #distractor
 for i in range(1, 12) #distractor
-for i in range(1, ) #distractor
-`;
+for i in range(1, ) #distractor`;
 
 const description = `Escribe un programa que imprima los números del 1 al 10 utilizando un bucle for.`;
 const note = ``;

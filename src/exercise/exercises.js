@@ -24,6 +24,15 @@ import Exercise23 from './exercise23';
 import Exercise24 from './exercise24';
 import Exercise25 from './exercise25';
 import Exercise26 from './exercise26';
+import Exercise27 from './exercise27';
+import Exercise28 from './exercise28';
+import Exercise29 from './exercise29';
+import Exercise30 from './exercise30';
+import Exercise31 from './exercise31';
+import Exercise32 from './exercise32';
+import Exercise33 from './exercise33';
+import Exercise34 from './exercise34';
+import Exercise35 from './exercise35';
 const exercises = {
     1: Exercise1,
     2: Exercise2,
@@ -51,7 +60,15 @@ const exercises = {
     24: Exercise24,
     25: Exercise25,
     26: Exercise26,
-
+    27: Exercise27,
+    28: Exercise28,
+    29: Exercise29,
+    30: Exercise30,
+    31: Exercise31,
+    32: Exercise32,
+    33: Exercise33,
+    34: Exercise34,
+    35: Exercise35,
   };
   
   export default exercises;

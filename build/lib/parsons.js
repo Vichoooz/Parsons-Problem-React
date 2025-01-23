@@ -41,8 +41,8 @@
        }
      },
      en: {
-       trash_label: 'Drag from here',
-       solution_label: 'Construct your solution here',
+       trash_label: 'Arrastra desde aquí',
+       solution_label: 'Construye tu solución aquí',
        order: function() {
          return "Code fragments in your program are wrong, or in wrong order. This can be fixed by moving, removing, or replacing highlighted fragments.";},
        lines_missing: function() {
@@ -877,7 +877,7 @@
      
      var defaults = {
        'incorrectSound': false,
-       'x_indent': 50,
+       'x_indent': 60,
        'can_indent': true,
        'feedback_cb': false,
        'first_error_only': true,
@@ -1386,26 +1386,56 @@
      }
 
      var that = this;
-     var sortable = $("#ul-" + this.options.sortableId).sortable(
-       {
-         start : function() { that.clearFeedback(); },
-         stop : function(event, ui) {
-           if ($(event.target)[0] != ui.item.parent()[0]) {
-             return;
-           }
-           that.updateIndent(ui.position.left - ui.item.parent().position().left,
-                                       ui.item[0].id);
-           that.updateHTMLIndent(ui.item[0].id);
-           that.addLogEntry({type: "moveOutput", target: ui.item[0].id}, true);
-         },
-         receive : function(event, ui) {
-           var ind = that.updateIndent(ui.position.left - ui.item.parent().position().left,
-                                       ui.item[0].id);
-           that.updateHTMLIndent(ui.item[0].id);
-           that.addLogEntry({type: "addOutput", target: ui.item[0].id}, true);
-         },
-         grid : that.options.can_indent ? [that.options.x_indent, 1 ] : false
-       });
+     var sortable = $("#ul-" + this.options.sortableId).sortable({
+      start: function () {
+        // Limpiar cualquier retroalimentación previa
+        that.clearFeedback();
+    
+        // Añadir una clase visual al contenedor mientras se arrastra
+        $("#ul-" + that.options.sortableId).addClass("dragging");
+      },
+      stop: function (event, ui) {
+        // Remover la clase visual del contenedor después de arrastrar
+        $("#ul-" + that.options.sortableId).removeClass("dragging");
+    
+        // Verificar que el elemento se suelte en el mismo contenedor
+        if ($(event.target)[0] != ui.item.parent()[0]) {
+          return;
+        }
+    
+        // Actualizar la indentación y los cambios visuales
+        that.updateIndent(
+          ui.position.left - ui.item.parent().position().left,
+          ui.item[0].id
+        );
+        that.updateHTMLIndent(ui.item[0].id);
+    
+        // Registrar la acción en el historial
+        that.addLogEntry({ type: "moveOutput", target: ui.item[0].id }, true);
+      },
+      receive: function (event, ui) {
+        // Actualizar la indentación y los cambios visuales al recibir un bloque
+        var ind = that.updateIndent(
+          ui.position.left - ui.item.parent().position().left,
+          ui.item[0].id
+        );
+        that.updateHTMLIndent(ui.item[0].id);
+    
+        // Registrar la acción en el historial
+        that.addLogEntry({ type: "addOutput", target: ui.item[0].id }, true);
+      },
+      grid: that.options.can_indent ? [that.options.x_indent, 1] : false, // Control de indentación
+      tolerance: "pointer", // Tolerancia más permisiva para el drop
+      over: function (event, ui) {
+        // Añadir un indicador visual al contenedor mientras está sobre él
+        $(event.target).addClass("sortable-hover");
+      },
+      out: function (event, ui) {
+        // Quitar el indicador visual cuando se salga del contenedor
+        $(event.target).removeClass("sortable-hover");
+      },
+    });
+    
      sortable.addClass("output");
      if (this.options.trashId) {
        var trash = $("#ul-" + this.options.trashId).sortable(
