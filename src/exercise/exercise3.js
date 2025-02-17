@@ -1,5 +1,8 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
-
+if (localStorage.getItem("OPEN") === null){
+    localStorage.setItem("OPEN", "true");
+    window.location.reload();
+}
 const initialCode = `age = int(input("¿Cuál es tu edad? "))
 if age >= 18:
     print("Mayor de edad.")

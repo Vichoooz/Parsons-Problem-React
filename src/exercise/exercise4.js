@@ -1,5 +1,8 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
-
+if (localStorage.getItem("OPEN") === null){
+  localStorage.setItem("OPEN", "true");
+  window.location.reload();
+}
 const initialCode = `a = 200 <br>b = 33
 if b > a:
   print("b es mayor que a")

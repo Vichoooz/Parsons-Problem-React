@@ -4,9 +4,11 @@ const HandleSubmitData = async ({level, timeTaken, errorsCount }) => {
         const levelNumber = parseInt(urlParts[urlParts.length - 1]);
         // Crear un objeto limpio con los datos
         const user_id = localStorage.getItem("userId")
+        const name = localStorage.getItem("UserName")
         console.log("User id:", user_id);
         const payload = {
             user_id,
+            name,
             levelNumber,
             timeTaken,
             errorsCount,

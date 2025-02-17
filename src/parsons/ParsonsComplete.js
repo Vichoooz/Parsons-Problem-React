@@ -16,7 +16,7 @@ const saveLevelData = (level, errors, time) => {
   const currentLevelData = existingData[level];
 
   // Si no hay datos para ese nivel o el tiempo actual es menor que el guardado, actualizar
-
+  
   if (!currentLevelData){
     HandleSubmitData({level, timeTaken: time, errorsCount: errors });
     existingData[level] = { errors, time };
@@ -26,10 +26,6 @@ const saveLevelData = (level, errors, time) => {
     existingData[level] = { errors, time };
     localStorage.setItem("gameData", JSON.stringify(existingData));
   }
-
-
-
-
 };
 
 

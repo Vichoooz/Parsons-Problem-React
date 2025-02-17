@@ -139,14 +139,14 @@ export const createParsonsExercise = (initial, description, note) => {
       const currentPath = window.location.pathname;
       const currentExercise = parseInt(currentPath.split("/").pop(), 10);
       if (currentExercise > 1) {
-        navigate(`/Parsons-Problem-React/exercise/${currentExercise - 1}`); // Asegurarse de restar uno correctamente
+        navigate(`/exercise/${currentExercise - 1}`); // Asegurarse de restar uno correctamente
       }
     };
 
     const goToNext = () => {
       const currentPath = window.location.pathname;
       const currentExercise = parseInt(currentPath.split("/").pop(), 10);
-      navigate(`/Parsons-Problem-React/exercise/${currentExercise + 1}`); // Asegurarse de sumar uno correctamente
+      navigate(`/exercise/${currentExercise + 1}`); // Asegurarse de sumar uno correctamente
     };
 
     const handleNextExercise = () => {

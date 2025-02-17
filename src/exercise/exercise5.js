@@ -1,5 +1,8 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
-
+if (localStorage.getItem("OPEN") === null){
+  localStorage.setItem("OPEN", "true");
+  window.location.reload();
+}
 const initialCode = `num = int(input("Ingresa un número: "))
 if num > 0:
   print("Positivo") 

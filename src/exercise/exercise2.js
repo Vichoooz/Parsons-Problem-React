@@ -1,4 +1,8 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
+if (localStorage.getItem("OPEN") === null){
+    localStorage.setItem("OPEN", "true");
+    window.location.reload();
+}
 
 const initialCode = `temperatura = int(input("Ingresa la temperatura"))
 if temperatura < 10:
