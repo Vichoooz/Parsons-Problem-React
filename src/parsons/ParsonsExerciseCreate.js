@@ -34,17 +34,20 @@ export const createParsonsExercise = (initial, description, note) => {
       }, 1000);
 
       const loadScripts = async () => {
-        await Promise.all([ 
-          loadScript("https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"),
-          loadScript("https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"),
-          loadScript("../lib/underscore-min.js"),
-          loadScript("../lib/lis.js"),
-          loadScript("../lib/parsons.js"),
-
-
-          
-        ]);
+        const scripts = [
+          "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js",
+          "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js",
+          "../lib/underscore-min.js", // Ensure this is loaded before lis.js
+          "../lib/lis.js",
+          "../lib/parsons.js",
+        ];
+      
+        for (const script of scripts) {
+          await loadScript(script);
+        }
+      
         initializeParsons();
+
       };
 
       const loadScript = (src) =>
