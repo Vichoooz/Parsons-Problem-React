@@ -1,18 +1,16 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
 
-const initialCode = `numeros = [4, -2, 7, -8, 10, -5, 3] <br> suma = 0 <br> contador = 0
-for numero in numeros:
-    if numero > 0:
-        suma += numero <br> contador += 1
-if contador > 0:
-    promedio = suma / contador
-    print("El promedio de los números positivos es:", promedio)
+const initialCode = `numero = int(input("Ingresa un número: ")) <br> es_primo = True
+for i in range(2, numero):
+    if numero % i == 0:
+        es_primo = False
+if numero > 1 and es_primo:
+    print("El número es primo.")
 else:
-    print("No hay números positivos en la lista.")`;
+    print("El número no es primo.")`;
 
+const description = `Crea un programa que verifique si un número es primo utilizando un bucle for.`;
+const note = `Ejemplo: si el usuario ingresa 7, el programa debe mostrar "El número es primo."`;
 
-const description = `Escribe un programa que calcule el promedio de los números positivos en una lista, ignorando los negativos.`;
-const note = ``;
-
-const Exercise35 = createParsonsExercise(initialCode, description, note);
-export default Exercise35;
+const Exercise31 = createParsonsExercise(initialCode, description, note);
+export default Exercise31;

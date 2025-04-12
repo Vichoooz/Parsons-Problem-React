@@ -1,14 +1,14 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
 
-const initialCode = `for i in range(1, 11):
-    print(i)
-for i in range(1, 10) #distractor
-for i in range(0, 11) #distractor
-for i in range(1, 12) #distractor
-for i in range(1, ) #distractor`;
+const initialCode = `palabra = input("Ingresa una palabra: ")
+invertida = ""
+for letra in palabra:
+    invertida = letra + invertida
+print("La palabra invertida es:", invertida)`;
 
-const description = `Escribe un programa que imprima los números del 1 al 10 utilizando un bucle for.`;
-const note = ``;
 
-const Exercise26 = createParsonsExercise(initialCode, description, note);
-export default Exercise26;
+const description = `Diseña un programa que invierta una cadena de texto ingresada por el usuario.`;
+const note = `Ejemplo: si el usuario ingresa "hola", el programa debe mostrar "La palabra invertida es: aloh".`;
+
+const Exercise34 = createParsonsExercise(initialCode, description, note);
+export default Exercise34;

@@ -3,8 +3,6 @@ import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
 const initialCode = `for i in range(1, 11):
     print("5 x " + str(i) + " = " + str(5 * i))
 for i in range(1, n ) #distractor
-for 11 in range(0, i) #distractor
-for i in range(1, 12) #distractor
 print("5 x " + i + " = " + 5 * i)) #distractor
 print("5 x i = 5 * i") #distractor`;
 
