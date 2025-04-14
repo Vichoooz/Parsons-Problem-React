@@ -1,7 +1,6 @@
 import { createParsonsExercise } from "../parsons/ParsonsExerciseCreate";
 
-const initialCode = `palabra = input("Ingresa una palabra: ")
-invertida = ""
+const initialCode = `palabra = input("Ingresa una palabra: ") <br> invertida = ""
 for letra in palabra:
     invertida = letra + invertida
 print("La palabra invertida es:", invertida)`;
