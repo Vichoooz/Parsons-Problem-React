@@ -1,5 +1,4 @@
 import React from "react";
-import HandleSubmitData from "./DataSend"; 
 
 // Función para formatear el tiempo en mm:ss
 const formatTime = (seconds) => {
@@ -18,7 +17,6 @@ const saveLevelData = (level, errors, time) => {
   // Si no hay datos para ese nivel o el tiempo actual es menor que el guardado, actualizar
   
   if (!currentLevelData){
-    HandleSubmitData({level, timeTaken: time, errorsCount: errors });
     existingData[level] = { errors, time };
     localStorage.setItem("gameData", JSON.stringify(existingData));
   }
@@ -27,7 +25,6 @@ const saveLevelData = (level, errors, time) => {
     localStorage.setItem("gameData", JSON.stringify(existingData));
   }
 };
-
 
 
 const ParsonsComplete = ({ timeTaken, errorsCount, onNextExercise }) => {
